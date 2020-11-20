@@ -38,7 +38,7 @@ app.post('/api/items', async (req, res) => {
   const item = new Item({
     title: req.body.title,
     path: req.body.path,
-    description: req.body.path
+    description: req.body.description
   });
   try {
     console.log(item._id);
@@ -73,7 +73,8 @@ app.put('/api/items/:id', async (req, res) => {
     const item = Item.findOne({
       '_id': req.params.id
     }, async (err, item) => {
-      item.title = req.body.title;o
+      item.title = req.body.title;
+      item.description = req.body.description;
       await item.save();
       res.send(item);
     });

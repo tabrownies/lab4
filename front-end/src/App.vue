@@ -15,6 +15,9 @@
   </div>
   <div class="footer">
     <router-link to="/admin">Admin</router-link>
+    <a href="https://github.com/tabrownies/lab4">
+      Github Repository
+    </a>
   </div>
 </div>
 </template>
@@ -56,13 +59,19 @@ body {
 /* Footer */
 .footer {
   height: 50px;
-  padding: 20px 100px 0px 100px;
+  padding:40px;
   background: #e3e3e3;
   font-size: 12px;
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .footer a {
   color: #000;
+  font-size:30px;
+  margin:0;
+  padding:0;
 }
 
 h1 {

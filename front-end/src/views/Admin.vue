@@ -7,8 +7,11 @@
     </div>
     <div class="add">
       <div class="form">
-        <input v-model="title" placeholder="Title">
-        <textarea v-model="description" placeholder="Description"></textarea>
+        <div class="text-boxes">
+          <input v-model="title" placeholder="Title">
+          <textarea v-model="description" placeholder="Description"></textarea>
+
+        </div>
         <p></p>
         <input type="file" name="photo" @change="fileChanged">
         <button @click="upload">Upload</button>
@@ -16,6 +19,7 @@
       <div class="upload" v-if="addItem">
         <h2>{{addItem.title}}</h2>
         <img :src="addItem.path" />
+        <p>{{addItem.description}}</p>
       </div>
     </div>
     <div class="heading">
@@ -31,7 +35,11 @@
         </div>
       </div>
       <div class="upload" v-if="findItem">
-        <input v-model="findItem.title">
+        <div class="text-boxes">
+          <input v-model="findItem.title">
+          <textarea v-model="findItem.description"></textarea>
+        </div>
+
         <p></p>
         <img :src="findItem.path" />
       </div>
@@ -107,6 +115,7 @@
         try {
           await axios.put("/api/items/" + item._id, {
             title: this.findItem.title,
+            description: this.findItem.description
           });
           this.findItem = null;
           this.getItems();
@@ -163,6 +172,10 @@
   button {
     font-family: 'Montserrat', sans-serif;
     font-size: 1em;
+  }
+  .text-boxes{
+    display:flex;
+    flex-direction: column;
   }
 
   .form {
