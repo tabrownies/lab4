@@ -85,7 +85,7 @@
           });
           this.addItem = r2.data;
         } catch (error) {
-          console.log(error);
+          
         }
       },
       async getItems() {
@@ -94,7 +94,7 @@
           this.items = response.data;
           return true;
         } catch (error) {
-          console.log(error);
+          
         }
       },
       selectItem(item) {
@@ -108,7 +108,7 @@
           this.getItems();
           return true;
         } catch (error) {
-          console.log(error);
+          
         }
       },
       async editItem(item) {
@@ -121,7 +121,7 @@
           this.getItems();
           return true;
         } catch (error) {
-          console.log(error);
+          
         }
       },
     },
